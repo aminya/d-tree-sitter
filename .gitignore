@@ -1,3 +1,7 @@
+src/build/
+src/gen/
+src/libc.d
+
 # Compiled Object files
 *.o
 *.obj
