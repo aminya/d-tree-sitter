@@ -1,0 +1,3 @@
+module d_tree_sitter.libc;
+
+#include "./gen/tree-sitter/lib/include/tree_sitter/api.h"

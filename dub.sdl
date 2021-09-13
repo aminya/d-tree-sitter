@@ -1,0 +1,85 @@
+name "d_tree_sitter"
+description "The D bindings for tree-sitter"
+authors "Amin Yahyaabadi"
+copyright "Copyright © 2021, Amin Yahyaabadi"
+license "Apache-2.0"
+
+targetType "library"
+targetPath "./src/build"
+
+preBuildCommands "rdmd ./script/d_tree_sitter.d"
+
+sourcePaths "./src"
+importPaths "./src"
+mainSourceFile "./src/d_tree_sitter.d"
+sourceFiles "./src/libc.d" // gen by dpp
+extraDependencyFiles "./src/tree-sitter-version.txt" "./package.json" "./src/meson.build"
+
+lflags "./src/build/libtree_sitter.a"
+dependency "bc-string" version="1.2.2"
+
+// -------- Build Options and configurations --------
+
+// enables all disp except =nosharedaccess
+dflags "-preview=dip25" "-preview=dip1000" "-preview=dip1008" "-preview=fieldwise" "-preview=fixAliasThis" "-preview=intpromote" "-preview=rvaluerefparam" "-preview=in"
+/* dflags "-preview=dip1021" */ // causes random crashes
+/* dflags "-preview=inclusiveincontracts" platform="dmd" // only on dmd */
+
+buildType "release" {
+  dflags "-vgc" "--flto=full" "--ffast-math" "--linkonce-templates" platform="ldc"
+  buildOptions "releaseMode" "optimize" "inline"
+  versions "release"
+}
+
+buildType "release-nobounds" {
+  dflags "-vgc" "--flto=full" "--ffast-math" "--linkonce-templates" platfrom="ldc"
+  buildOptions "releaseMode" "optimize" "inline" "noBoundsCheck"
+  versions "release"
+}
+
+buildType "unittest-release" platform="ldc" {
+  dflags "-vgc" "--flto=full" "--ffast-math" "--linkonce-templates" platfrom="ldc"
+  buildOptions "unittests" "releaseMode" "optimize" "inline"
+  versions "release"
+}
+
+buildType "unittest-release-nobounds" platform="ldc" {
+  dflags "-vgc" "--flto=full" "--ffast-math" "--linkonce-templates" platfrom="ldc"
+  buildOptions "unittests" "releaseMode" "optimize" "inline" "noBoundsCheck"
+  versions "release"
+}
+
+buildType "debug-sanitize-address" platform="ldc" {
+  dflags "--fsanitize=address" "--link-defaultlib-debug"
+  buildOptions "debugMode" "debugInfo"
+}
+
+buildType "debug-sanitize-thread" platform="ldc" {
+  dflags "--fsanitize=thread" "--link-defaultlib-debug"
+  buildOptions "debugMode" "debugInfo"
+}
+
+buildType "debug-sanitize-memory" platform="ldc" {
+  dflags "--fsanitize=memory" "--link-defaultlib-debug"
+  buildOptions "debugMode" "debugInfo"
+}
+
+buildType "unittest-sanitize-address" platform="ldc" {
+  dflags "--fsanitize=address"
+  buildOptions "unittests" "debugMode" "debugInfo"
+}
+
+buildType "unittest-sanitize-thread" platform="ldc" {
+  dflags "--fsanitize=thread"
+  buildOptions "unittests" "debugMode" "debugInfo"
+}
+
+buildType "unittest-sanitize-memory" platform="ldc" {
+  dflags "--fsanitize=memory"
+  buildOptions "unittests" "debugMode" "debugInfo"
+}
+
+// for linking with C libraries
+libs "msvcrt" platform="windows"
+lflags "/NODEFAULTLIB:libcmt" "/NODEFAULTLIB:msvcrtd" platform="windows-dmd"
+dflags "--link-internally" platform="windows-ldc"
