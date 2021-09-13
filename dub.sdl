@@ -10,6 +10,7 @@ targetPath "./src/build"
 preBuildCommands "rdmd ./script/d_tree_sitter.d"
 
 sourcePaths "./src"
+importPaths "./src" "./src/d_tree_sitter"
 mainSourceFile "./src/d_tree_sitter/d_tree_sitter.d"
 sourceFiles "./src/d_tree_sitter/libc.d" // gen by dpp
 extraDependencyFiles "./src/tree-sitter-version.txt" "./package.json" "./src/meson.build"
