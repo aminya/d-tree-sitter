@@ -1,8 +1,8 @@
-module d_tree_sitter.tree_cursor;
+module tree_cursor;
 
 extern (C):
 
-import d_tree_sitter.node;
+import node;
 
 import std.exception : enforce;
 import std.string : fromStringz;
@@ -10,7 +10,7 @@ import std.string : fromStringz;
 /// A stateful object for walking a syntax `Tree` efficiently.
 struct TreeCursor
 {
-  import d_tree_sitter.libc : TSTreeCursor, ts_tree_cursor_copy,
+  import libc : TSTreeCursor, ts_tree_cursor_copy,
     ts_tree_cursor_current_node, ts_tree_cursor_current_field_id,
     ts_tree_cursor_current_field_name, ts_tree_cursor_goto_first_child,
     ts_tree_cursor_goto_parent,

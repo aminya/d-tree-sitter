@@ -1,4 +1,4 @@
-module d_tree_sitter.language;
+module language;
 
 extern (C):
 
@@ -11,7 +11,7 @@ import std.string : fromStringz, toStringz;
 */
 struct Language
 {
-  import d_tree_sitter.libc : TSLanguage, ts_language_version,
+  import libc : TSLanguage, ts_language_version,
     ts_language_symbol_count, ts_language_symbol_name, ts_language_symbol_for_name,
     ts_language_symbol_type, TSSymbolType, ts_language_field_count,
     ts_language_field_name_for_id, ts_language_field_id_for_name;

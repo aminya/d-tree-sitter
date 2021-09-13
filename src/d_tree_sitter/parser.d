@@ -1,12 +1,12 @@
-module d_tree_sitter.parser;
+module parser;
 
 extern (C):
 
-import d_tree_sitter.language;
-import d_tree_sitter.tree;
-import d_tree_sitter.tree_visitor;
-import d_tree_sitter.tree_printer;
-import d_tree_sitter.libc : TSTree;
+import language;
+import tree;
+import tree_visitor;
+import tree_printer;
+import libc : TSTree;
 
 import std.typecons : Nullable;
 import std.format : format;
@@ -15,7 +15,7 @@ import std.string : fromStringz, toStringz;
 /** A stateful object that this is used to produce a `Tree` based on some source code */
 struct Parser
 {
-  import d_tree_sitter.libc : TSParser, ts_parser_new, ts_parser_delete,
+  import libc : TSParser, ts_parser_new, ts_parser_delete,
     ts_parser_language, ts_parser_set_language, ts_parser_logger, TSLogger,
     ts_parser_print_dot_graphs, ts_parser_parse, ts_parser_parse_string,
     ts_parser_parse_string_encoding, TSInput, TSInputEncoding;
@@ -79,7 +79,7 @@ struct Parser
   /** Throws an error if the version of the given language is not compatible */
   void enforce_compatible_language(Language language) const
   {
-    import d_tree_sitter.libc : TREE_SITTER_MIN_COMPATIBLE_LANGUAGE_VERSION,
+    import libc : TREE_SITTER_MIN_COMPATIBLE_LANGUAGE_VERSION,
       TREE_SITTER_LANGUAGE_VERSION;
 
     auto language_version = language.get_version();

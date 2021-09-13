@@ -1,8 +1,8 @@
-module d_tree_sitter.other;
+module other;
 
 extern (C):
 
-import d_tree_sitter.libc : TSPoint;
+import libc : TSPoint;
 
 /**
   A position in a multi-line text document, in terms of rows and columns.
@@ -19,7 +19,7 @@ bool opEqualsPoints(const Point lhs, const Point rhs) @nogc @safe nothrow
   return lhs.row == rhs.row && rhs.column == rhs.column;
 }
 
-import d_tree_sitter.libc : TSRange;
+import libc : TSRange;
 
 /**
   A range of positions in a multi-line text document, both in terms of bytes and of
@@ -37,7 +37,7 @@ bool opEqualsRanges(const Range lhs, const Range rhs) @nogc @safe nothrow
       rhs.end_point);
 }
 
-import d_tree_sitter.libc : TSInputEdit;
+import libc : TSInputEdit;
 
 /**  A summary of a change to a text document.
 

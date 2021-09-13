@@ -1,9 +1,9 @@
-module d_tree_sitter.tree_printer;
+module tree_printer;
 
 extern (C):
 
-import d_tree_sitter.tree_visitor;
-import d_tree_sitter.tree_cursor;
+import tree_visitor;
+import tree_cursor;
 import bc.string : String, nogcFormat;
 
 /** visit all the nodes and get information about each

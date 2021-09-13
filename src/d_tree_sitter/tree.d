@@ -1,17 +1,17 @@
-module d_tree_sitter.tree;
+module tree;
 
 extern (C):
 
-import d_tree_sitter.language;
-import d_tree_sitter.node;
-import d_tree_sitter.tree_visitor;
-import d_tree_sitter.other;
-import d_tree_sitter.libc : TSTree;
+import language;
+import node;
+import tree_visitor;
+import other;
+import libc : TSTree;
 
 /** A tree that represents the syntactic structure of a source code file. */
 struct Tree
 {
-  import d_tree_sitter.libc : ts_tree_delete, ts_tree_root_node, ts_tree_language,
+  import libc : ts_tree_delete, ts_tree_root_node, ts_tree_language,
     ts_tree_edit, ts_tree_get_changed_ranges, ts_tree_copy, ts_tree_print_dot_graph;
 
   import std.stdio : File;

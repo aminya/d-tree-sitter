@@ -1,11 +1,11 @@
-module d_tree_sitter.node;
+module node;
 
 extern (C):
 
-import d_tree_sitter.language;
-import d_tree_sitter.tree_cursor;
-import d_tree_sitter.tree_visitor;
-import d_tree_sitter.other;
+import language;
+import tree_cursor;
+import tree_visitor;
+import other;
 
 import std : iota, Nullable;
 import std.string : fromStringz, toStringz;
@@ -13,7 +13,7 @@ import std.string : fromStringz, toStringz;
 /** A single `Node` within a syntax `Tree`. */
 struct Node
 {
-  import d_tree_sitter.libc : TSNode, ts_node_symbol, ts_node_type, ts_tree_language,
+  import libc : TSNode, ts_node_symbol, ts_node_type, ts_tree_language,
     ts_node_is_named, ts_node_is_extra, ts_node_has_changes, ts_node_has_error,
     ts_node_is_missing, ts_node_start_byte, ts_node_end_byte,
     ts_node_start_point, ts_node_end_point, ts_node_child, ts_node_child_count,

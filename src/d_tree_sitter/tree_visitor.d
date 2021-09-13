@@ -1,8 +1,8 @@
-module d_tree_sitter.tree_visitor;
+module tree_visitor;
 
 extern (C):
 
-import d_tree_sitter.tree_cursor;
+import tree_cursor;
 
 /** An interface that describes the minimum functions that a visitor requires */
 interface TreeVisitor
