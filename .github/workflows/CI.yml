@@ -118,3 +118,6 @@ jobs:
         run: dub build
         env:
           DUB_BUILD_TYPE: debug
+
+      - name: Lint
+        run: dub lint
