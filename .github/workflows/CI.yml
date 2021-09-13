@@ -1,0 +1,120 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  Test:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-20.04
+          - windows-2019
+        d:
+          - "ldc-1.27.1"
+        clang:
+          - 12.0.0
+        clang_major:
+          - 12
+        meson:
+          - 0.59.1
+        ninja:
+          - 1.10.2
+        include:
+          - os: ubuntu-20.04
+            d: dmd-2.097.2
+            clang: 12.0.0
+            clang_major: 12
+            meson: 0.59.1
+            ninja: 1.10.2
+        #   TODO macos fails to find stbool.h
+        # - os: macos-10.15
+        #   d: ldc-1.27.1
+        #   clang: 11.0.0
+        #   clang_major: 11 # uses clang11, in which libclang is built for macos-10.15
+        #   meson: 0.59.1
+        #   ninja: 1.10.2
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # Cache
+      - name: Cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.dub
+            ~/AppData/Local/dub
+            ./src/*/build/*.lib
+            ./src/*/build/*.a
+            ./.dub
+            ./llvm
+            C:/Program Files/LLVM
+            ./**/download-cache
+            ~/.cache/pip
+            ~/AppData/Local/pip/cache
+          key: "d-tree-sitter-OS:${{ matrix.os }}-D:${{ matrix.d }}-Clang:${{ matrix.clang }}-${{ matrix.meson }}-${{ matrix.ninja }}-${{ hashFiles('./dub.sdl') }}-${{ hashFiles('./src/d_tree_sitter/tree_sitter/tree-sitter-version.txt') }}"
+          restore-keys: |
+            "d-tree-sitter-OS:${{ matrix.os }}-D:${{ matrix.d }}-Clang:${{ matrix.clang }}"
+
+      # Setup compilers and tools
+
+      - name: Setup D
+        uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ${{ matrix.d }}
+
+      - name: Setup Meson
+        run: pip install meson==${{ matrix.meson }}
+
+      - name: Setup Ninja
+        uses: aminya/install-cmake@new-versions-and-arch
+        with:
+          cmake: false
+          ninja: ${{ matrix.ninja }}
+
+      - name: Setup LLVM
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: ${{ matrix.clang }}
+          cached: ${{ steps.cache.outputs.cache-hit }}
+
+      - name: Linux - link libclang.so
+        if: contains(matrix.os, 'ubuntu')
+        run: sudo ln -s libclang-${{ matrix.clang_major }}.so.1 /lib/x86_64-linux-gnu/libclang.so
+        working-directory: ${{ env.LLVM_PATH }}/lib
+
+      - name: Prepare LLVM
+        if: "!contains(matrix.os, 'windows')" # TODO windows
+        run: |
+          LLVM_PATH="${{ env.LLVM_PATH }}"
+          LLVM_VERSION="${{ matrix.clang_major }}"
+
+          # already done inside install-llvm-action
+          # echo "PATH="$LLVM_PATH:$PATH"
+          # echo "LD_LIBRARY_PATH=$LLVM_PATH/lib/:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+          # echo "DYLD_LIBRARY_PATH=$LLVM_PATH/lib/:$DYLD_LIBRARY_PATH" >> $GITHUB_ENV
+
+          echo "CPATH=$LLVM_PATH/lib/clang/$LLVM_VERSION/include/" >> $GITHUB_ENV
+          echo "LDFLAGS=-L$LLVM_PATH/lib" >> $GITHUB_ENV
+          echo "CPPFLAGS=-I$LLVM_PATH/include" >> $GITHUB_ENV
+          echo "CC=$LLVM_PATH/bin/clang" >> $GITHUB_ENV
+          echo "CXX=$LLVM_PATH/bin/clang++" >> $GITHUB_ENV
+          echo "LIBRARY_PATH=$LLVM_PATH/lib" >> $GITHUB_ENV
+
+      - name: Prepare LLVM - MacOS
+        if: contains(matrix.os, 'macos')
+        run: |
+          echo "SDKROOT=$(xcrun --sdk macosx --show-sdk-path)" >> $GITHUB_ENV
+
+      - name: Build
+        run: dub build
+        env:
+          DUB_BUILD_TYPE: debug
