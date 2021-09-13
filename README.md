@@ -11,7 +11,7 @@ dub build
 
 # Usage
 ```d
-import d_tree_sitter.d_tree_sitter;
+import d_tree_sitter;
 ```
 
 # License
