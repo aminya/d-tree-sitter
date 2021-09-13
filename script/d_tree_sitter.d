@@ -53,7 +53,7 @@ void bind_tree_sitter(string treeSitterPackageDir, string treeSitterDlDir,
   auto fileContent = readText(generatedFile);
 
   // remove everything before extern(C)
-  fileContent = "module d_tree_sitter.libc;\nimport core.stdc.config;\n" ~ fileContent.find(
+  fileContent = "module libc;\nimport core.stdc.config;\n" ~ fileContent.find(
       "extern(C)");
 
   // HACK remove struct __ioBuf from the generated file
