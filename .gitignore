@@ -1,6 +1,7 @@
 src/build/
-src/gen/
-src/libc.d
+src/d_tree_sitter/build/
+src/d_tree_sitter/gen/
+src/d_tree_sitter/libc.d
 
 # Compiled Object files
 *.o

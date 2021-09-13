@@ -87,7 +87,7 @@ void main() {
   // common paths
   const rootDir = dirName(dirName(buildNormalizedPath(__FILE_FULL_PATH__)));
   // package paths
-  const treeSitterPackageDir = buildPath(rootDir, "src");
+  const treeSitterPackageDir = buildPath(rootDir, "src", "d_tree_sitter");
 
   // set DUB_BUILD_TYPE from the cli, so all the build scripts use that
   const buildConfig = environment["DUB_BUILD_TYPE"];
