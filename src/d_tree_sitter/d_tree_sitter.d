@@ -12,6 +12,7 @@ public import tree_visitor;
 public import tree_printer;
 public import node;
 public import other;
+public import query;
 
 // export the libc symbols under libc namespace
 public import libc = libc;
