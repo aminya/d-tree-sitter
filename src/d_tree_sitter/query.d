@@ -50,13 +50,13 @@ struct QueryIterator
     this(Query* query, Node* node, uint min, uint max)
     {
         this(query, node);
-        setByteRange(min, max);
+        set_byte_range(min, max);
     }
 
     this(Query* query, Node* node, Point min, Point max)
     {
         this(query, node);
-        setPointRange(min, max);
+        set_point_range(min, max);
     }
 
     ~this()
@@ -64,12 +64,12 @@ struct QueryIterator
         ts_query_cursor_delete(cursor);
     }
 
-    void setByteRange(uint min, uint max)
+    void set_byte_range(uint min, uint max)
     {
         ts_query_cursor_set_byte_range(cursor, min, max);
     }
 
-    void setPointRange(Point min, Point max)
+    void set_point_range(Point min, Point max)
     {
         ts_query_cursor_set_point_range(cursor, min, max);
     }
@@ -152,63 +152,63 @@ struct Query
         return QueryIterator(&this, &node, min, max);
     }
 
-    int patternCount() @nogc nothrow
+    int pattern_count() @nogc nothrow
     {
         return ts_query_pattern_count(tsquery);
     }
 
-    int captureCount() @nogc nothrow
+    int capture_count() @nogc nothrow
     {
         return ts_query_capture_count(tsquery);
     }
 
-    int stringCount() @nogc nothrow
+    int string_count() @nogc nothrow
     {
         return ts_query_string_count(tsquery);
     }
 
-    int startByteForPattern(uint patternId) @nogc nothrow
+    int start_byte_for_pattern(uint patternId) @nogc nothrow
     {
         return ts_query_start_byte_for_pattern(tsquery, patternId);
     }
 
-    const(TSQueryPredicateStep)[] predicatesForPattern(uint patternId) @nogc nothrow
+    const(TSQueryPredicateStep)[] predicates_for_pattern(uint patternId) @nogc nothrow
     {
         uint len;
         auto ptr = ts_query_predicates_for_pattern(tsquery, patternId, &len);
         return ptr[0 .. len];
     }
 
-    bool stepIsDefinite(uint byteOffset) @nogc nothrow
+    bool step_is_definite(uint byteOffset) @nogc nothrow
     {
         return ts_query_step_is_definite(tsquery, byteOffset);
     }
 
-    string captureNameForId(uint captureId) nothrow
+    string capture_name_for_id(uint captureId) nothrow
     {
         uint len;
         auto namePtr = ts_query_capture_name_for_id(tsquery, captureId, &len);
         return namePtr[0 .. len].to!string;
     }
 
-    string captureName(TSQueryCapture capture) nothrow
+    string capture_name(TSQueryCapture capture) nothrow
     {
-        return captureNameForId(capture.index);
+        return capture_name_for_id(capture.index);
     }
 
-    string queryStringValueForId(uint id) nothrow
+    string query_string_value_for_id(uint id) nothrow
     {
         uint len;
         auto namePtr = ts_query_string_value_for_id(tsquery, id, &len);
         return namePtr[0 .. len].to!string;
     }
 
-    void disableCapture(string captureName)
+    void disable_capture(string captureName)
     {
         ts_query_disable_capture(tsquery, captureName.toStringz, captureName.length.to!uint);
     }
 
-    void disablePattern(uint patternId) @nogc nothrow
+    void disable_pattern(uint patternId) @nogc nothrow
     {
         ts_query_disable_pattern(tsquery, patternId);
     }
