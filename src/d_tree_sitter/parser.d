@@ -226,6 +226,13 @@ struct Parser
   }
 
   /**
+    Parse the given source_code into a Tree
+  */
+  Tree parse_to_tree(const string source) {
+      return Tree(parse(source));
+  }
+
+  /**
         Get the S-expression of the given source code
         Params:
             source_code =     the given source code as a string
@@ -233,7 +240,7 @@ struct Parser
        */
   auto s_expression(const string source_code) nothrow
   {
-    auto tree = Tree(parse(source_code));
+    auto tree = parse_to_tree(source_code);
 
     // Get the root node of the syntax tree.
     auto root_node = tree.root_node();
@@ -247,7 +254,7 @@ struct Parser
   */
   void traverse(const string source_code, TreeVisitor visitor)
   {
-    auto tree = Tree(parse(source_code));
+    auto tree = parse_to_tree(source_code);
 
     // Get the root node of the syntax tree.
     auto root_node = tree.root_node();
@@ -260,7 +267,7 @@ struct Parser
   */
   string traverse_print(const string source_code) @trusted
   {
-    auto tree = Tree(parse(source_code));
+    auto tree = parse_to_tree(source_code);
 
     // Get the root node of the syntax tree.
     auto root_node = tree.root_node();
