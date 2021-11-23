@@ -228,7 +228,7 @@ struct Parser
   /**
     Parse the given source_code into a Tree
   */
-  Tree parse_to_tree(const string source) {
+  Tree parse_to_tree(const string source) nothrow {
       return Tree(parse(source));
   }
 
