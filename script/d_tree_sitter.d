@@ -43,7 +43,7 @@ void bind_tree_sitter(string treeSitterPackageDir, string treeSitterDlDir,
     .map!((elm) => (" --prebuilt-header " ~ elm.key ~ "=" ~ elm.value))().join(" ");
 
   // TODO macos fails to find stbool.h
-  const headers = " --ignore-system-paths --no-sys-headers " ~ prebuiltHeaders;
+  const headers = " --ignore-system-paths " ~ prebuiltHeaders;
   executeShellAt(dppBin ~ headers ~ " --keep-d-files " ~ treeSitterLibcDpp
       ~ " --include-path " ~ treeSitterIncludeDir ~ " --source-output-path "
       ~ treeSitterPackageDir ~ " --preprocess-only --compiler=" ~ compiler, treeSitterGenDir);

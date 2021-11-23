@@ -32,13 +32,12 @@ jobs:
             clang_major: 12
             meson: 0.60.1
             ninja: 1.10.2
-        #   TODO macos fails to find stbool.h
-        # - os: macos-10.15
-        #   d: ldc-1.27.1
-        #   clang: 11.0.0
-        #   clang_major: 11 # uses clang11, in which libclang is built for macos-10.15
-        #   meson: 0.60.1
-        #   ninja: 1.10.2
+          - os: macos-10.15
+            d: ldc-1.28.0
+            clang: 11.0.0
+            clang_major: 11 # uses clang11, in which libclang is built for macos-10.15
+            meson: 0.60.1
+            ninja: 1.10.2
     steps:
       - uses: actions/checkout@v2
         with:
