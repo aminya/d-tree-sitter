@@ -35,7 +35,6 @@ struct QueryIterator
     Node* node;
 
     private TSQueryCursor* cursor;
-    private TSQueryMatch* match;
 
     @disable this(this);
 
