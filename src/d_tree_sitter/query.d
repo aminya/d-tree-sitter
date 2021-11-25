@@ -147,7 +147,7 @@ struct Query
     /**
      * Execute a query over an entire node.
      *
-     * The caller may iterate over the result to recieve a series of
+     * The caller may iterate over the result to receive a series of
      * `QueryMatch` results.
      */
     QueryIterator exec(Node node)
@@ -158,7 +158,7 @@ struct Query
     /**
      * Execute a query between given start and end byte offsets.
      *
-     * The caller may iterate over the result to recieve a series of
+     * The caller may iterate over the result to receive a series of
      * `QueryMatch` results.
      */
     QueryIterator exec(Node node, uint min, uint max)
@@ -169,7 +169,7 @@ struct Query
     /**
      * Execute a query between given start and end `Points`.
      *
-     * The caller may iterate over the result to recieve a series of
+     * The caller may iterate over the result to receive a series of
      * `QueryMatch` results.
      */
     QueryIterator exec(Node node, Point min, Point max)
