@@ -83,7 +83,8 @@ void build_d_tree_sitter(string treeSitterPackageDir, MesonOptions mesonOptions)
   meson(treeSitterPackageDir, treeSitterBuildDir, mesonOptions);
 }
 
-void main() {
+void main()
+{
   // common paths
   const rootDir = dirName(dirName(buildNormalizedPath(__FILE_FULL_PATH__)));
   // package paths
