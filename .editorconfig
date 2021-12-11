@@ -1,0 +1,7 @@
+# This file is a part of Dreama https://github.com/aminya/dreama licensed under Apache-2.0
+# Copyright 2021 Amin Yahyaabadi
+
+[*.d]
+max_line_length = 110
+indent_size = 2
+dfmt_keep_line_breaks=true

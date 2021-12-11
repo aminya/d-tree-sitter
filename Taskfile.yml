@@ -1,0 +1,21 @@
+# https://taskfile.dev/#/installation
+version: 3
+
+tasks:
+  dev: dub build
+  build: dub build --build=release
+
+  format: dub run dfmt -- --inplace ./src ./script
+
+  lint: dub lint
+
+  clean:
+    - dub clean
+    - '
+      {{if eq OS "windows"}} powershell -C "
+      if (test-path ./src/d_tree_sitter/gen) { rm -r -force ./src/d_tree_sitter/gen; }
+      if (test-path ./src/d_tree_sitter/build) { rm -r -force ./src/d_tree_sitter/build; }
+      if (test-path ./src/build) { rm -r -force ./src/build }"
+      {{else}}
+      rm -rf ./src/d_tree_sitter/gen ./src/d_tree_sitter/build ./src/build ./.dub {{end}}
+      '
