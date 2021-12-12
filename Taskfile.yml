@@ -13,9 +13,10 @@ tasks:
     - dub clean
     - '
       {{if eq OS "windows"}} powershell -C "
-      if (test-path ./src/d_tree_sitter/gen) { rm -r -force ./src/d_tree_sitter/gen; }
-      if (test-path ./src/d_tree_sitter/build) { rm -r -force ./src/d_tree_sitter/build; }
-      if (test-path ./src/build) { rm -r -force ./src/build }"
+      if (test-path ./src/d_tree_sitter/gen) { rm -r -force ./src/d_tree_sitter/gen }
+      if (test-path ./src/d_tree_sitter/build) { rm -r -force ./src/d_tree_sitter/build }
+      if (test-path ./src/build) { rm -r -force ./src/build }
+      if (test-path ./src/d_tree_sitter/libc.d) { rm -force ./src/d_tree_sitter/libc.d }"
       {{else}}
-      rm -rf ./src/d_tree_sitter/gen ./src/d_tree_sitter/build ./src/build ./.dub {{end}}
+      rm -rf ./src/d_tree_sitter/gen ./src/d_tree_sitter/build ./src/build ./.dub ./src/d_tree_sitter/libc.d {{end}}
       '
