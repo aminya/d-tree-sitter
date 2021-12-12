@@ -74,17 +74,7 @@ jobs:
         with:
           meson: ${{ matrix.meson }}
           ninja: ${{ matrix.ninja }}
-
-      - name: Setup LLVM
-        if: "!${{ steps.cache.outputs.cache-hit }}"
-        uses: aminya/setup-cpp@v1
-        with:
           llvm: ${{ matrix.clang }}
-
-      - name: Linux - link libclang.so
-        if: contains(matrix.os, 'ubuntu')
-        run: sudo ln -s libclang-${{ matrix.clang_major }}.so.1 /lib/x86_64-linux-gnu/libclang.so
-        working-directory: ${{ env.LLVM_PATH }}/lib
 
       - name: Build
         run: dub build
