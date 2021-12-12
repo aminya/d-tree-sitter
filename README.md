@@ -11,7 +11,7 @@ You need to have [meson](https://mesonbuild.com/SimpleStart.html#installing-meso
 dub build
 ```
 
-See [the GitHub Actions config](https://github.com/aminya/d-tree-sitter/blob/master/.github/workflows/CI.yml) for a reproducible setup used to build d-tree-sitter.
+To set up a reproducible build environment, you can run [setup-cpp](https://github.com/aminya/setup-cpp) with `--llvm=11.0.0`, `--meson=true` and `--vcvarsall=true`. This will set up LLVM 11.0.0 and the proper environment variables.
 
 # Usage
 ```d
