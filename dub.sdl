@@ -20,7 +20,7 @@ dependency "bc-string" version="1.2.2"
 
 // -------- Build Options and configurations --------
 
-// enables all disp except =nosharedaccess
+// enables most of the dips
 dflags "-preview=dip25" "-preview=dip1000" "-preview=dip1008" "-preview=fieldwise" "-preview=fixAliasThis" "-preview=intpromote" "-preview=rvaluerefparam" "-preview=in"
 /* dflags "-preview=dip1021" */ // causes random crashes
 /* dflags "-preview=inclusiveincontracts" platform="dmd" // only on dmd */

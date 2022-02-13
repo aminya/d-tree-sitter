@@ -41,15 +41,7 @@ void bind_tree_sitter(string treeSitterPackageDir, string treeSitterDlDir,
   const prebuiltHeaders = headersMap.byKeyValue()
     .map!((elm) => (" --prebuilt-header " ~ elm.key ~ "=" ~ elm.value))().join(" ");
 
-  string headers;
-  version (linux)
-  {
-    headers = " --ignore-system-paths --no-sys-headers " ~ prebuiltHeaders;
-  }
-  else
-  {
-    headers = " --ignore-system-paths " ~ prebuiltHeaders;
-  }
+  string headers = " --ignore-system-paths " ~ prebuiltHeaders;
 
   executeShellAt(dppBin ~ headers ~ " --keep-d-files " ~ treeSitterLibcDpp
       ~ " --include-path " ~ treeSitterIncludeDir ~ " --source-output-path "
