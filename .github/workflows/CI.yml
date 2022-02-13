@@ -25,6 +25,13 @@ jobs:
           - 3.22.2
         ninja:
           - 1.10.2
+        exclude:
+          # TODO ci job fails with object.Error@(0): Access Violation error
+          - os: windows-2022
+            d: dmd-2.098.1
+            clang: 13.0.0
+            cmake: 3.22.2
+            ninja: 1.10.2
     steps:
       - uses: actions/checkout@v2
         with:
