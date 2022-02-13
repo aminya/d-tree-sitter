@@ -15,27 +15,16 @@ jobs:
         os:
           - ubuntu-20.04
           - windows-2022
+          - macos-11.0
         d:
           - "ldc-1.28.1"
+          - "dmd-2.098.1"
         clang:
           - 13.0.0
-        clang_major:
-          - 13
-        meson:
-          - 0.61.1
+        cmake:
+          - 3.22.2
         ninja:
           - 1.10.2
-        include:
-          - os: ubuntu-20.04
-            d: dmd-2.098.1
-            clang: 12.0.0
-            meson: 0.61.1
-            ninja: 1.10.2
-          - os: macos-11.0
-            d: ldc-1.28.1
-            clang: 13.0.0
-            meson: 0.61.1
-            ninja: 1.10.2
     steps:
       - uses: actions/checkout@v2
         with:
@@ -56,7 +45,7 @@ jobs:
             ./**/download-cache
             ~/.cache/pip
             ~/AppData/Local/pip/cache
-          key: "d-tree-sitter-OS:${{ matrix.os }}-D:${{ matrix.d }}-Clang:${{ matrix.clang }}-${{ matrix.meson }}-${{ matrix.ninja }}-${{ hashFiles('./dub.sdl') }}-${{ hashFiles('./src/d_tree_sitter/tree_sitter/tree-sitter-version.txt') }}"
+          key: "d-tree-sitter-OS:${{ matrix.os }}-D:${{ matrix.d }}-Clang:${{ matrix.clang }}-${{ matrix.cmake }}-${{ matrix.ninja }}-${{ hashFiles('./dub.sdl') }}-${{ hashFiles('./src/d_tree_sitter/tree_sitter/tree-sitter-version.txt') }}"
           restore-keys: |
             "d-tree-sitter-OS:${{ matrix.os }}-D:${{ matrix.d }}-Clang:${{ matrix.clang }}"
 
@@ -69,7 +58,7 @@ jobs:
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
         with:
-          meson: ${{ matrix.meson }}
+          cmake: ${{ matrix.cmake }}
           ninja: ${{ matrix.ninja }}
           llvm: ${{ matrix.clang }}
 

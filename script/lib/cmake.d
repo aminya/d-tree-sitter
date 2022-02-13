@@ -66,7 +66,7 @@ private auto convert_build_config(string buildConfig)
   return "Debug";
 }
 
-private auto convert_sanitizer(string buildConfig)
+private string[] convert_sanitizer(string buildConfig)
 {
   // extract the name of the sanitizer from the build config and store it in the SANITIZER env variable for CMake to use.
   auto sanitizeMatch = matchFirst(buildConfig, ctRegex!(r"sanitize-(\w*)"));
