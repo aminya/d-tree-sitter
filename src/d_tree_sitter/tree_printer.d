@@ -7,8 +7,6 @@ import tree_cursor;
 import bc.string : String, nogcFormat;
 
 /** visit all the nodes and get information about each
-    Params:
-        source_code =     the given source code as a string
 */
 final class TreePrinter : TreeVisitor
 {
@@ -17,7 +15,10 @@ final class TreePrinter : TreeVisitor
   /** the information about the tree as a string */
   String tree_string = "";
 
-  /** create a TreePrinter using the source code */
+  /** create a TreePrinter using the source code 
+      Params:
+        source_code =     the given source code as a string
+  */
   this(const string source_code) @nogc nothrow
   {
     this.source_code = source_code;

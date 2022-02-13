@@ -360,7 +360,6 @@ struct Node
 
   /** Find the nth parent of node. It goes up until it hits a null parent or `max_nth`.
     Params:
-      node = the node
       max_nth = the maximum level to go up.
     Returns:
       A node. If the given node doesn't have a parent, it returns the node itself.
