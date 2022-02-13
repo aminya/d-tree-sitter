@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>tree</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>d_tree_sitter</h2>
+        <p><span class="smallprint"><b>version:</b> 1.2.0 <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >d_tree_sitter</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >core</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >stdc</span></a><ul>
+			
+
+	<li><a title="D header file for C99." href="d_tree_sitter--d_tree_sitter.core.stdc.stdbool.html"><span >stdbool</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.language.html"><span >language</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.libc.html"><span >libc</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.node.html"><span >node</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.other.html"><span >other</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.parser.html"><span >parser</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.query.html"><span >query</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree.html"><span >tree</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_cursor.html"><span >tree_cursor</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_printer.html"><span >tree_printer</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_visitor.html"><span >tree_visitor</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>tree</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree"></span><div class="quickindex" id="quickindex.Tree"></div>struct <code class="ddoc_psymbol">Tree</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A tree that represents the syntactic structure of a source code file.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.tstree"></span><div class="quickindex" id="quickindex.Tree.tstree"></div>TSTree* <code class="ddoc_psymbol">tstree</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">internal TsTree</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.this"></span><div class="quickindex" id="quickindex.Tree.this"></div>nothrow @nogc this(TSTree* <span class="ddoc_param">tstree</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new Tree</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.this.2"></span><div class="quickindex" id="quickindex.Tree.this.2"></div>nothrow @nogc this(return ref scope Tree <span class="ddoc_param">otherTree</span>);
+<br>
+inout nothrow @nogc this(return ref scope inout Tree <span class="ddoc_param">otherTree</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a shallow copy of the syntax tree. This is very fast.
+</div><div class="ddoc_description">You need to copy a syntax tree in order to use it on more than one thread at
+ a time, as syntax trees are not thread safe.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.create_empty"></span><div class="quickindex" id="quickindex.Tree.create_empty"></div>static nothrow @nogc auto <code class="ddoc_psymbol">create_empty</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Create an empty Tree</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.root_node"></span><div class="quickindex" id="quickindex.Tree.root_node"></div>const nothrow @nogc auto <code class="ddoc_psymbol">root_node</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the root node of the syntax tree.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.language"></span><div class="quickindex" id="quickindex.Tree.language"></div>const nothrow @nogc auto <code class="ddoc_psymbol">language</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the <code class="ddoc_psymbol">language</code> that was used to parse the syntax tree.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.edit"></span><div class="quickindex" id="quickindex.Tree.edit"></div>nothrow @nogc auto <code class="ddoc_psymbol">edit</code>(const InputEdit* <code class="ddoc_psymbol">edit</code>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Edit the syntax tree to keep it in sync with source code that has been
+      edited.
+</div><div class="ddoc_description">You must describe the <code class="ddoc_psymbol">edit</code> both in terms of byte offsets and in terms of
+      row/column coordinates.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.walk"></span><div class="quickindex" id="quickindex.Tree.walk"></div>const nothrow @nogc auto <code class="ddoc_psymbol">walk</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new [TreeCursor] starting from the root of the tree.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.traverse"></span><div class="quickindex" id="quickindex.Tree.traverse"></div>const void <code class="ddoc_psymbol">traverse</code>(TreeVisitor <span class="ddoc_param">visitor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Traverse the <a href="#Tree"><code class="ddoc_psymbol">Tree</code></a> starting from its root <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_node" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.node.html#.Node"><code class="ddoc_psymbol">Node</code></a> applying a <span class="ddoc_param">visitor</span> at all nodes.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.traverse_nothrow"></span><div class="quickindex" id="quickindex.Tree.traverse_nothrow"></div>const void <code class="ddoc_psymbol">traverse_nothrow</code>(TreeVisitor <span class="ddoc_param">visitor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Traverse the <a href="#Tree"><code class="ddoc_psymbol">Tree</code></a> starting from its root <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_node" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.node.html#.Node"><code class="ddoc_psymbol">Node</code></a> applying a <span class="ddoc_param">visitor</span> at all nodes.
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">NOTE:</span>
+if you are sure that TreeVisitor is nothrow</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.changed_ranges"></span><div class="quickindex" id="quickindex.Tree.changed_ranges"></div>const nothrow auto <code class="ddoc_psymbol">changed_ranges</code>(Tree <span class="ddoc_param">other</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Compare this old edited syntax tree to a new syntax tree representing the same
+      document, returning a sequence of ranges whose syntactic structure has changed.
+</div><div class="ddoc_description">For this to work correctly, this syntax tree must have been edited such that its
+      ranges match up to the new tree. Generally, youl want to call this method right
+      after calling one of the [Parser::parse] functions. Call it on the old tree that
+      was passed to parse, and pass the new tree that was returned from <code class="d_inlinecode donthyphenate notranslate">parse</code>.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.print_dot_graph"></span><div class="quickindex" id="quickindex.Tree.print_dot_graph"></div>const void <code class="ddoc_psymbol">print_dot_graph</code>(File <span class="ddoc_param">file</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Write a DOT graph describing the syntax tree to the given <span class="ddoc_param">file</span>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Tree.dot_graph"></span><div class="quickindex" id="quickindex.Tree.dot_graph"></div>const auto <code class="ddoc_psymbol">dot_graph</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get a DOT graph describing the syntax tree as a string</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>node</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>d_tree_sitter</h2>
+        <p><span class="smallprint"><b>version:</b> 1.2.0 <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >d_tree_sitter</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >core</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >stdc</span></a><ul>
+			
+
+	<li><a title="D header file for C99." href="d_tree_sitter--d_tree_sitter.core.stdc.stdbool.html"><span >stdbool</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.language.html"><span >language</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.libc.html"><span >libc</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.node.html"><span >node</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.other.html"><span >other</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.parser.html"><span >parser</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.query.html"><span >query</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree.html"><span >tree</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_cursor.html"><span >tree_cursor</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_printer.html"><span >tree_printer</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_visitor.html"><span >tree_visitor</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>node</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node"></span><div class="quickindex" id="quickindex.Node"></div>struct <code class="ddoc_psymbol">Node</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A single <code class="d_inlinecode donthyphenate notranslate"><code class="ddoc_psymbol">Node</code></code> within a syntax <code class="d_inlinecode donthyphenate notranslate">Tree</code>.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.tsnode"></span><div class="quickindex" id="quickindex.Node.tsnode"></div>TSNode <code class="ddoc_psymbol">tsnode</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">The internal <code class="d_inlinecode donthyphenate notranslate">TSNode</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.this"></span><div class="quickindex" id="quickindex.Node.this"></div>nothrow @nogc this(TSNode <span class="ddoc_param">tsnode</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new Node.
+</div><div class="ddoc_throws"><span class="ddoc_throws_header">Throws:</span>
+ If the passed <span class="ddoc_param">tsnode</span> is <code class="ddoc_keyword">null</code>, it will trigger an error in the debug mode.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.create"></span><div class="quickindex" id="quickindex.Node.create"></div>static nothrow @nogc @trusted Nullable!Node <code class="ddoc_psymbol">create</code>(TSNode <span class="ddoc_param">tsnode</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Creates a new Node from the given nullable TSNode
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">TSNode <span class="ddoc_param">tsnode</span></td>
+<td class="ddoc_param_desc">a C <span class="ddoc_param">tsnode</span>, which can be a <code class="d_inlinecode donthyphenate notranslate">null</code> node.</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ a <code class="d_inlinecode donthyphenate notranslate">Nullable!Node</code>, which gives the node if it is not a <code class="d_inlinecode donthyphenate notranslate">null</code> node, and <code class="d_inlinecode donthyphenate notranslate">null</code> if it is.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.isNull"></span><div class="quickindex" id="quickindex.Node.isNull"></div>bool <code class="ddoc_psymbol">isNull</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the Node is a <code class="d_inlinecode donthyphenate notranslate">null</code> node.
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Note:</span>
+this function should be only used when creating a <code class="d_inlinecode donthyphenate notranslate">Node</code> with its constructor in the release mode (instead of using <code class="d_inlinecode donthyphenate notranslate">Node.create</code>).
+      All the methods of <code class="d_inlinecode donthyphenate notranslate">Node</code> already use <code class="d_inlinecode donthyphenate notranslate">Node.create</code> and return a <code class="d_inlinecode donthyphenate notranslate">Nullable!Node</code>.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.id"></span><div class="quickindex" id="quickindex.Node.id"></div>const nothrow @nogc auto <code class="ddoc_psymbol">id</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get a numeric <code class="ddoc_psymbol">id</code> for this node that is unique.
+</div><div class="ddoc_description">Within a given syntax tree, no two nodes have the same <code class="ddoc_psymbol">id</code>. However, if
+    a new tree is created based on an older tree, and a node from the old
+    tree is reused in the process, then that node will have the same <code class="ddoc_psymbol">id</code> in
+    both trees.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.kind_id"></span><div class="quickindex" id="quickindex.Node.kind_id"></div>const nothrow @nogc auto <code class="ddoc_psymbol">kind_id</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's type as a numerical id.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.kind"></span><div class="quickindex" id="quickindex.Node.kind"></div>const nothrow @nogc auto <code class="ddoc_psymbol">kind</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's type as a string.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.language"></span><div class="quickindex" id="quickindex.Node.language"></div>const nothrow @nogc auto <code class="ddoc_psymbol">language</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_language" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.language.html#.Language"><code class="ddoc_psymbol">Language</code></a> that was used to parse this node's syntax tree.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.is_named"></span><div class="quickindex" id="quickindex.Node.is_named"></div>const nothrow @nogc auto <code class="ddoc_psymbol">is_named</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node is <em>named</em>.
+</div><div class="ddoc_description">Named nodes correspond to named rules in the grammar, whereas <em>anonymous</em> nodes
+    correspond to string literals in the grammar.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.is_extra"></span><div class="quickindex" id="quickindex.Node.is_extra"></div>const nothrow @nogc auto <code class="ddoc_psymbol">is_extra</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node is <em>extra</em>.
+</div><div class="ddoc_description">Extra nodes represent things like comments, which are not required the grammar,
+    but can appear anywhere.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.has_changes"></span><div class="quickindex" id="quickindex.Node.has_changes"></div>const nothrow @nogc auto <code class="ddoc_psymbol">has_changes</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node has been edited</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.has_error"></span><div class="quickindex" id="quickindex.Node.has_error"></div>const nothrow @nogc auto <code class="ddoc_psymbol">has_error</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node represents a syntax error or contains any syntax errors anywhere
+    within it.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.is_error"></span><div class="quickindex" id="quickindex.Node.is_error"></div>const nothrow @nogc auto <code class="ddoc_psymbol">is_error</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node represents a syntax error.
+</div><div class="ddoc_description">Syntax errors represent parts of the code that could not be incorporated into a
+    valid syntax tree.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.is_missing"></span><div class="quickindex" id="quickindex.Node.is_missing"></div>const nothrow @nogc auto <code class="ddoc_psymbol">is_missing</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if this node is <em>missing</em>.
+</div><div class="ddoc_description">Missing nodes are inserted by the parser in order to recover from certain kinds of
+    syntax errors.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.start_byte"></span><div class="quickindex" id="quickindex.Node.start_byte"></div>const nothrow @nogc auto <code class="ddoc_psymbol">start_byte</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the byte offsets where this node starts</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.end_byte"></span><div class="quickindex" id="quickindex.Node.end_byte"></div>const nothrow @nogc auto <code class="ddoc_psymbol">end_byte</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the byte offsets where this node end.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.byte_range"></span><div class="quickindex" id="quickindex.Node.byte_range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">byte_range</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the byte range of source code that this node represents.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.start_position"></span><div class="quickindex" id="quickindex.Node.start_position"></div>const nothrow @nogc auto <code class="ddoc_psymbol">start_position</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's start position in terms of rows and columns.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.end_position"></span><div class="quickindex" id="quickindex.Node.end_position"></div>const nothrow @nogc auto <code class="ddoc_psymbol">end_position</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's end position in terms of rows and columns.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.range"></span><div class="quickindex" id="quickindex.Node.range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">range</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the <code class="ddoc_psymbol">range</code> of source code that this node represents, both in terms of raw bytes
+    and of row/column coordinates.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.child"></span><div class="quickindex" id="quickindex.Node.child"></div>const nothrow @nogc auto <code class="ddoc_psymbol">child</code>(size_t <span class="ddoc_param">child_index</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the node's <code class="ddoc_psymbol">child</code> at the given index, where zero represents the first
+    <code class="ddoc_psymbol">child</code>.
+</div><div class="ddoc_description">This method is fairly fast, but its cost is technically log(<span class="ddoc_param">child_index</span>), so you
+    if you might be iterating over a long list of children, you should use
+    [Node::children] instead.
+
+</div>
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.child_count"></span><div class="quickindex" id="quickindex.Node.child_count"></div>const nothrow @nogc auto <code class="ddoc_psymbol">child_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's number of children</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.named_child"></span><div class="quickindex" id="quickindex.Node.named_child"></div>const nothrow @nogc auto <code class="ddoc_psymbol">named_child</code>(size_t <span class="ddoc_param">i</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's <em>named</em> child at the given index.
+</div><div class="ddoc_description">See also [Node::is_named].
+    This method is fairly fast, but its cost is technically log(<span class="ddoc_param">i</span>), so you
+    if you might be iterating over a long list of children, you should use
+    [Node::named_children] instead.
+
+</div>
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.named_child_count"></span><div class="quickindex" id="quickindex.Node.named_child_count"></div>const nothrow @nogc auto <code class="ddoc_psymbol">named_child_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node's number of <em>named</em> children.
+</div><div class="ddoc_description">See also [Node::is_named].</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.child_by_field_name"></span><div class="quickindex" id="quickindex.Node.child_by_field_name"></div>const auto <code class="ddoc_psymbol">child_by_field_name</code>(string <span class="ddoc_param">field_name</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the first child with the given field name.
+</div><div class="ddoc_description">If multiple children may have the same field name, access them using
+    <a href="Node::children_by_field_name">children_by_field_name</a>
+
+</div>
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.child_by_field_id"></span><div class="quickindex" id="quickindex.Node.child_by_field_id"></div>const nothrow @nogc auto <code class="ddoc_psymbol">child_by_field_id</code>(ushort <span class="ddoc_param">field_id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the first child with the given field name.
+</div><div class="ddoc_description">If multiple children may have the same field name, access them using
+    <a href="Node::children_by_field_name">children_by_field_name</a>
+
+</div>
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.children"></span><div class="quickindex" id="quickindex.Node.children"></div>const nothrow @nogc auto <code class="ddoc_psymbol">children</code>(TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Iterate over this node <code class="ddoc_psymbol">children</code>.
+</div><div class="ddoc_description">A <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_tree_cursor" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.tree_cursor.html#.TreeCursor"><code class="ddoc_psymbol">TreeCursor</code></a> is used to retrieve the <code class="ddoc_psymbol">children</code> efficiently. Obtain
+      a <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_tree_cursor" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.tree_cursor.html#.TreeCursor"><code class="ddoc_psymbol">TreeCursor</code></a> by calling [Tree::walk] or [Node::walk]. To avoid unnecessary
+      allocations, you should reuse the same <span class="ddoc_param">cursor</span> for subsequent calls to
+      this method.
+<div class="ddoc_blankline"></div>
+
+      If you're walking the tree recursively, you may want to use the <code class="d_inlinecode donthyphenate notranslate">TreeCursor</code>
+      APIs directly instead.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.named_children"></span><div class="quickindex" id="quickindex.Node.named_children"></div>const nothrow @nogc auto <code class="ddoc_psymbol">named_children</code>(TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Iterate over this node named children.
+</div><div class="ddoc_description">See also [Node::children].</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.children_by_field_id"></span><div class="quickindex" id="quickindex.Node.children_by_field_id"></div>const nothrow @nogc auto <code class="ddoc_psymbol">children_by_field_id</code>(ushort <span class="ddoc_param">field_id</span>, TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Iterate over this node children with a given field id.
+</div><div class="ddoc_description">See also [Node::children_by_field_name].</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.children_by_field_name"></span><div class="quickindex" id="quickindex.Node.children_by_field_name"></div>const auto <code class="ddoc_psymbol">children_by_field_name</code>(string <span class="ddoc_param">field_name</span>, TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Iterate over this node children with a given field name.
+</div><div class="ddoc_description">See also [Node::children].</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.has_parent"></span><div class="quickindex" id="quickindex.Node.has_parent"></div>const nothrow @nogc auto <code class="ddoc_psymbol">has_parent</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the node has a immediate parent
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Note:</span>
+<code class="d_inlinecode donthyphenate notranslate">parent</code> method already does this check</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.parent"></span><div class="quickindex" id="quickindex.Node.parent"></div>const nothrow @nogc auto <code class="ddoc_psymbol">parent</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node immediate <code class="ddoc_psymbol">parent</code>.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ a <code class="d_inlinecode donthyphenate notranslate">Nullable!Node</code>, which gives the <code class="ddoc_psymbol">parent</code> node if it has a <code class="ddoc_psymbol">parent</code>, and <code class="d_inlinecode donthyphenate notranslate">null</code> if the node has no <code class="ddoc_psymbol">parent</code>.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.nth_parent"></span><div class="quickindex" id="quickindex.Node.nth_parent"></div>const nothrow @nogc @trusted auto <code class="ddoc_psymbol">nth_parent</code>(in uint <span class="ddoc_param">max_nth</span> = 2);
+<br></div></dt>
+<dd><div class="ddoc_summary">Find the nth parent of node. It goes up until it hits a <code class="ddoc_keyword">null</code> parent or <code class="d_inlinecode donthyphenate notranslate"><span class="ddoc_param">max_nth</span></code>.
+</div><div class="ddoc_params"><span class="ddoc_params_header">Parameters:</span>
+ <table class="ddoc_params_table"><tr class="ddoc_param_row"><td class="ddoc_param_id">uint <span class="ddoc_param">max_nth</span></td>
+<td class="ddoc_param_desc">the maximum level to go up.</td></tr>
+</table></div>
+
+<div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A node. If the given node doesn't have a parent, it returns the node itself.
+</div>
+<div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Note:</span>
+the nth might not be reached if there are no more parents.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.has_next_sibling"></span><div class="quickindex" id="quickindex.Node.has_next_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">has_next_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the node has a next sibling.
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Note:</span>
+<code class="d_inlinecode donthyphenate notranslate">next_sibling</code> method already does this check</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.next_sibling"></span><div class="quickindex" id="quickindex.Node.next_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">next_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node next sibling.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.has_prev_sibling"></span><div class="quickindex" id="quickindex.Node.has_prev_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">has_prev_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the node has a previous sibling.
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">Note:</span>
+<code class="d_inlinecode donthyphenate notranslate">prev_sibling</code> method already does this check</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.prev_sibling"></span><div class="quickindex" id="quickindex.Node.prev_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">prev_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node previous sibling.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.next_named_sibling"></span><div class="quickindex" id="quickindex.Node.next_named_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">next_named_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node next named sibling.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.prev_named_sibling"></span><div class="quickindex" id="quickindex.Node.prev_named_sibling"></div>const nothrow @nogc auto <code class="ddoc_psymbol">prev_named_sibling</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get this node previous named sibling.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.descendant_for_byte_range"></span><div class="quickindex" id="quickindex.Node.descendant_for_byte_range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">descendant_for_byte_range</code>(uint <span class="ddoc_param">start</span>, uint <span class="ddoc_param">end</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the smallest node within this node that spans the given range.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.named_descendant_for_byte_range"></span><div class="quickindex" id="quickindex.Node.named_descendant_for_byte_range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">named_descendant_for_byte_range</code>(uint <span class="ddoc_param">start</span>, uint <span class="ddoc_param">end</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the smallest named node within this node that spans the given range.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.descendant_for_point_range"></span><div class="quickindex" id="quickindex.Node.descendant_for_point_range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">descendant_for_point_range</code>(Point <span class="ddoc_param">start</span>, Point <span class="ddoc_param">end</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the smallest node within this node that spans the given range.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.named_descendant_for_point_range"></span><div class="quickindex" id="quickindex.Node.named_descendant_for_point_range"></div>const nothrow @nogc auto <code class="ddoc_psymbol">named_descendant_for_point_range</code>(Point <span class="ddoc_param">start</span>, Point <span class="ddoc_param">end</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the smallest named node within this node that spans the given range.
+</div><div class="ddoc_returns"><span class="ddoc_returns_header">Returns:</span>
+ A <code class="d_inlinecode donthyphenate notranslate">Nulllable!Node</code></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.to_string"></span><div class="quickindex" id="quickindex.Node.to_string"></div>const nothrow auto <code class="ddoc_psymbol">to_string</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Convert Node to string</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.utf8_text"></span><div class="quickindex" id="quickindex.Node.utf8_text"></div>const nothrow @nogc auto <code class="ddoc_psymbol">utf8_text</code>(string <span class="ddoc_param">source_code</span>);
+<br>
+const nothrow @nogc auto <code class="ddoc_psymbol">utf8_text</code>(ubyte[] <span class="ddoc_param">source</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Convert Node to utf8 string</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.utf16_text"></span><div class="quickindex" id="quickindex.Node.utf16_text"></div>const nothrow @nogc auto <code class="ddoc_psymbol">utf16_text</code>(ushort[] <span class="ddoc_param">source</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Convert Node to utf16 string</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.walk"></span><div class="quickindex" id="quickindex.Node.walk"></div>const nothrow @nogc auto <code class="ddoc_psymbol">walk</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_tree_cursor" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.tree_cursor.html#.TreeCursor"><code class="ddoc_psymbol">TreeCursor</code></a> starting from this node.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.hash"></span><div class="quickindex" id="quickindex.Node.hash"></div>const @nogc @trusted auto <code class="ddoc_psymbol">hash</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Hash a node. This returns a unique string for this node.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.traverse"></span><div class="quickindex" id="quickindex.Node.traverse"></div>const void <code class="ddoc_psymbol">traverse</code>(TreeVisitor <span class="ddoc_param">visitor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Traverse this <code class="d_inlinecode donthyphenate notranslate">Node</code> and all its descendants in a top-down left to right manner while
+    applying the <span class="ddoc_param">visitor</span> at each <a href="#Node"><code class="ddoc_psymbol">Node</code></a>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.traverse_nothrow"></span><div class="quickindex" id="quickindex.Node.traverse_nothrow"></div>const nothrow void <code class="ddoc_psymbol">traverse_nothrow</code>(TreeVisitor <span class="ddoc_param">visitor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Traverse this <code class="d_inlinecode donthyphenate notranslate">Node</code> and all its descendants in a top-down left to right manner while
+    applying the <span class="ddoc_param">visitor</span> at each <a href="#Node"><code class="ddoc_psymbol">Node</code></a>.
+</div><div class="ddoc_section_nonstandard"><span class="ddoc_section_nonstandard_header">NOTE:</span>
+if you are sure that TreeVisitor is nothrow</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Node.edit"></span><div class="quickindex" id="quickindex.Node.edit"></div>nothrow @nogc auto <code class="ddoc_psymbol">edit</code>(const InputEdit* <code class="ddoc_psymbol">edit</code>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Edit this node to keep it in-sync with source code that has been edited.
+</div><div class="ddoc_description">This function is only rarely needed. When you <code class="ddoc_psymbol">edit</code> a syntax tree with the
+      [Tree::<code class="ddoc_psymbol">edit</code>] method, all of the nodes that you retrieve from the tree
+      afterward will already reflect the <code class="ddoc_psymbol">edit</code>. You only need to use [Node::<code class="ddoc_psymbol">edit</code>]
+      when you have a specific <a href="#Node"><code class="ddoc_psymbol">Node</code></a> instance that you want to keep and continue
+      to use after an <code class="ddoc_psymbol">edit</code>.</div>
+</dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildren"></span><div class="quickindex" id="quickindex.NodeChildren"></div>struct <code class="ddoc_psymbol">NodeChildren</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A range to iterate over the node children.
+</div><div class="ddoc_description">A <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_tree_cursor" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.tree_cursor.html#.TreeCursor"><code class="ddoc_psymbol">TreeCursor</code></a> is used to retrieve the children efficiently. Obtain
+    a <a href="<span style="color:red">!!!!! UNDEFINED MACRO: "DOC_ROOT_tree_cursor" !!!!!!</span>C:\Users\aminy\Github\GitHub\D\d-tree-sitter\d-tree-sitter\docs\d_tree_sitter--d_tree_sitter.tree_cursor.html#.TreeCursor"><code class="ddoc_psymbol">TreeCursor</code></a> by calling [Tree::walk] or [Node::walk]. To avoid unnecessary
+    allocations, you should reuse the same cursor for subsequent calls to
+    this method.
+<div class="ddoc_blankline"></div>
+
+    If you're walking the tree recursively, you may want to use the <code class="d_inlinecode donthyphenate notranslate">TreeCursor</code>
+    APIs directly instead.</div>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildren.this"></span><div class="quickindex" id="quickindex.NodeChildren.this"></div>nothrow @nogc this(Node <span class="ddoc_param">parent</span>, TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">create a NodeChildren for the given node and <span class="ddoc_param">cursor</span></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildren.front"></span><div class="quickindex" id="quickindex.NodeChildren.front"></div>const nothrow @nogc auto <code class="ddoc_psymbol">front</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the current child</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildren.popFront"></span><div class="quickindex" id="quickindex.NodeChildren.popFront"></div>nothrow @nogc void <code class="ddoc_psymbol">popFront</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">go to the next child</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildren.empty"></span><div class="quickindex" id="quickindex.NodeChildren.empty"></div>const nothrow @nogc auto <code class="ddoc_psymbol">empty</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Is it the end?</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeNamedChildren"></span><div class="quickindex" id="quickindex.NodeNamedChildren"></div>struct <code class="ddoc_psymbol">NodeNamedChildren</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A range the iterates over the node named children.
+</div><div class="ddoc_description">See also [Node::children].</div>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeNamedChildren.this"></span><div class="quickindex" id="quickindex.NodeNamedChildren.this"></div>nothrow @nogc this(Node <span class="ddoc_param">parent</span>, TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">create a NodeNamedChildren for the given node and <span class="ddoc_param">cursor</span></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeNamedChildren.front"></span><div class="quickindex" id="quickindex.NodeNamedChildren.front"></div>nothrow @nogc auto <code class="ddoc_psymbol">front</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the current child
+    NOTE Do not call this twice in a row without calling popFront and empty in between!</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeNamedChildren.popFront"></span><div class="quickindex" id="quickindex.NodeNamedChildren.popFront"></div>nothrow @nogc void <code class="ddoc_psymbol">popFront</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">go to the next child</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeNamedChildren.empty"></span><div class="quickindex" id="quickindex.NodeNamedChildren.empty"></div>const nothrow @nogc auto <code class="ddoc_psymbol">empty</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Is it the end?</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildrenByFieldID"></span><div class="quickindex" id="quickindex.NodeChildrenByFieldID"></div>struct <code class="ddoc_psymbol">NodeChildrenByFieldID</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A range to iterate over the node children with a given field id.
+</div><div class="ddoc_description">See also [Node::children_by_field_name].</div>
+<dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildrenByFieldID.this"></span><div class="quickindex" id="quickindex.NodeChildrenByFieldID.this"></div>nothrow @nogc this(Node <span class="ddoc_param">parent</span>, ushort <span class="ddoc_param">field_id</span>, TreeCursor* <span class="ddoc_param">cursor</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">create a NodeChildrenByFieldID for the given node, <span class="ddoc_param">field_id</span>, and <span class="ddoc_param">cursor</span></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildrenByFieldID.front"></span><div class="quickindex" id="quickindex.NodeChildrenByFieldID.front"></div>nothrow @nogc auto <code class="ddoc_psymbol">front</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the current child
+    NOTE Do not call this twice in a row without calling popFront and empty in between!</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildrenByFieldID.popFront"></span><div class="quickindex" id="quickindex.NodeChildrenByFieldID.popFront"></div>nothrow @nogc void <code class="ddoc_psymbol">popFront</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">go to the next child</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".NodeChildrenByFieldID.empty"></span><div class="quickindex" id="quickindex.NodeChildrenByFieldID.empty"></div>const nothrow @nogc auto <code class="ddoc_psymbol">empty</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Is it the end?</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

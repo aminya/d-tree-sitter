@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>query</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>d_tree_sitter</h2>
+        <p><span class="smallprint"><b>version:</b> 1.2.0 <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >d_tree_sitter</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >core</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >stdc</span></a><ul>
+			
+
+	<li><a title="D header file for C99." href="d_tree_sitter--d_tree_sitter.core.stdc.stdbool.html"><span >stdbool</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.language.html"><span >language</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.libc.html"><span >libc</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.node.html"><span >node</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.other.html"><span >other</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.parser.html"><span >parser</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.query.html"><span >query</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree.html"><span >tree</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_cursor.html"><span >tree_cursor</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_printer.html"><span >tree_printer</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_visitor.html"><span >tree_visitor</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>query</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryCapture"></span><div class="quickindex" id="quickindex.QueryCapture"></div>struct <code class="ddoc_psymbol">QueryCapture</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A particular <code class="d_inlinecode donthyphenate notranslate">Node</code> that has been captured with a particular name within a <code class="d_inlinecode donthyphenate notranslate">Query</code>.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryCapture.node"></span><div class="quickindex" id="quickindex.QueryCapture.node"></div>Node <code class="ddoc_psymbol">node</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">The <code class="d_inlinecode donthyphenate notranslate">Node</code> that was captured.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryCapture.index"></span><div class="quickindex" id="quickindex.QueryCapture.index"></div>int <code class="ddoc_psymbol">index</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">the <code class="ddoc_psymbol">index</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryCapture.name"></span><div class="quickindex" id="quickindex.QueryCapture.name"></div>string <code class="ddoc_psymbol">name</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">The <code class="ddoc_psymbol">name</code> of the capture.</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryMatch"></span><div class="quickindex" id="quickindex.QueryMatch"></div>struct <code class="ddoc_psymbol">QueryMatch</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A match of a <code class="d_inlinecode donthyphenate notranslate">Query</code> to a particular set of <code class="d_inlinecode donthyphenate notranslate">Node</code>s.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryMatch.id"></span><div class="quickindex" id="quickindex.QueryMatch.id"></div>uint <code class="ddoc_psymbol">id</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">The <code class="ddoc_psymbol">id</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryMatch.pattern_index"></span><div class="quickindex" id="quickindex.QueryMatch.pattern_index"></div>uint <code class="ddoc_psymbol">pattern_index</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">the pattern index</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryMatch.captures"></span><div class="quickindex" id="quickindex.QueryMatch.captures"></div>QueryCapture[] <code class="ddoc_psymbol">captures</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">the <code class="ddoc_psymbol">captures</code> array</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator"></span><div class="quickindex" id="quickindex.QueryIterator"></div>struct <code class="ddoc_psymbol">QueryIterator</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A sequence of <code class="d_inlinecode donthyphenate notranslate">QueryMatch</code>es associated with a given <code class="d_inlinecode donthyphenate notranslate">QueryCursor</code>.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.this"></span><div class="quickindex" id="quickindex.QueryIterator.this"></div>this(Query* <span class="ddoc_param">query</span>, Node* <span class="ddoc_param">node</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new <code class="d_inlinecode donthyphenate notranslate">QueryIterator</code> for the given <code class="d_inlinecode donthyphenate notranslate">Query</code> and <code class="d_inlinecode donthyphenate notranslate">Node</code>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.this.2"></span><div class="quickindex" id="quickindex.QueryIterator.this.2"></div>this(Query* <span class="ddoc_param">query</span>, Node* <span class="ddoc_param">node</span>, uint <span class="ddoc_param">min</span>, uint <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new <code class="d_inlinecode donthyphenate notranslate">QueryIterator</code> for the given <code class="d_inlinecode donthyphenate notranslate">Query</code> and <code class="d_inlinecode donthyphenate notranslate">Node</code> and given byte range.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.this.3"></span><div class="quickindex" id="quickindex.QueryIterator.this.3"></div>this(Query* <span class="ddoc_param">query</span>, Node* <span class="ddoc_param">node</span>, Point <span class="ddoc_param">min</span>, Point <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new <code class="d_inlinecode donthyphenate notranslate">QueryIterator</code> for the given <code class="d_inlinecode donthyphenate notranslate">Query</code> and <code class="d_inlinecode donthyphenate notranslate">Node</code> and given point range.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.set_byte_range"></span><div class="quickindex" id="quickindex.QueryIterator.set_byte_range"></div>void <code class="ddoc_psymbol">set_byte_range</code>(uint <span class="ddoc_param">min</span>, uint <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Adjusts the range in which the query will apply.
+ <code class="d_inlinecode donthyphenate notranslate"><span class="ddoc_param">min</span></code> and <code class="d_inlinecode donthyphenate notranslate"><span class="ddoc_param">max</span></code> are byte offsets.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.set_point_range"></span><div class="quickindex" id="quickindex.QueryIterator.set_point_range"></div>void <code class="ddoc_psymbol">set_point_range</code>(Point <span class="ddoc_param">min</span>, Point <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Adjusts the range in which the query will apply.
+ <code class="d_inlinecode donthyphenate notranslate"><span class="ddoc_param">min</span></code> and <code class="d_inlinecode donthyphenate notranslate"><span class="ddoc_param">max</span></code> are Point offsets.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryIterator.opApply"></span><div class="quickindex" id="quickindex.QueryIterator.opApply"></div>int <code class="ddoc_psymbol">opApply</code>(scope int delegate(QueryMatch) <span class="ddoc_param">dg</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Returns the next <code class="d_inlinecode donthyphenate notranslate">QueryMatch</code> in the sequence.</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryException"></span><div class="quickindex" id="quickindex.QueryException"></div>class <code class="ddoc_psymbol">QueryException</code>: <span class="ddoc_psuper_symbol">object.Exception</span>;
+<br></div></dt>
+<dd><div class="ddoc_summary">An error that occurred when trying to create a <code class="d_inlinecode donthyphenate notranslate">Query</code>.</div><dl class="ddoc_members"><div class="ddoc_class_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryException.error"></span><div class="quickindex" id="quickindex.QueryException.error"></div>TSQueryError <code class="ddoc_psymbol">error</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">the internal TSQueryError <code class="ddoc_psymbol">error</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".QueryException.this"></span><div class="quickindex" id="quickindex.QueryException.this"></div>this(TSQueryError <span class="ddoc_param">error</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new <code class="d_inlinecode donthyphenate notranslate">QueryException</code> with the given <code class="d_inlinecode donthyphenate notranslate">TSQueryError</code>.</div></dd>
+</div></dl>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query"></span><div class="quickindex" id="quickindex.Query"></div>struct <code class="ddoc_psymbol">Query</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">A query to retrieve information from the syntax tree.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.tsquery"></span><div class="quickindex" id="quickindex.Query.tsquery"></div>TSQuery* <code class="ddoc_psymbol">tsquery</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">The underlying <code class="d_inlinecode donthyphenate notranslate">TSQuery</code></div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.this"></span><div class="quickindex" id="quickindex.Query.this"></div>this(Language <span class="ddoc_param">language</span>, string <span class="ddoc_param">queryString</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Create a new query from a string containing one or more S-expression
+patterns.
+</div><div class="ddoc_description">The query is associated with a particular <span class="ddoc_param">language</span>, and can only be run
+on syntax nodes parsed with that <span class="ddoc_param">language</span>. References to Queries can be
+shared between multiple threads.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.exec"></span><div class="quickindex" id="quickindex.Query.exec"></div>QueryIterator <code class="ddoc_psymbol">exec</code>(Node <span class="ddoc_param">node</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Execute a query over an entire <span class="ddoc_param">node</span>.
+</div><div class="ddoc_description">The caller may iterate over the result to receive a series of
+ <code class="d_inlinecode donthyphenate notranslate">QueryMatch</code> results.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.exec.2"></span><div class="quickindex" id="quickindex.Query.exec.2"></div>QueryIterator <code class="ddoc_psymbol">exec</code>(Node <span class="ddoc_param">node</span>, uint <span class="ddoc_param">min</span>, uint <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Execute a query between given start and end byte offsets.
+</div><div class="ddoc_description">The caller may iterate over the result to receive a series of
+ <code class="d_inlinecode donthyphenate notranslate">QueryMatch</code> results.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.exec.3"></span><div class="quickindex" id="quickindex.Query.exec.3"></div>QueryIterator <code class="ddoc_psymbol">exec</code>(Node <span class="ddoc_param">node</span>, Point <span class="ddoc_param">min</span>, Point <span class="ddoc_param">max</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Execute a query between given start and end <code class="d_inlinecode donthyphenate notranslate">Points</code>.
+</div><div class="ddoc_description">The caller may iterate over the result to receive a series of
+ <code class="d_inlinecode donthyphenate notranslate">QueryMatch</code> results.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.pattern_count"></span><div class="quickindex" id="quickindex.Query.pattern_count"></div>nothrow @nogc int <code class="ddoc_psymbol">pattern_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the number of patterns in the query.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.capture_count"></span><div class="quickindex" id="quickindex.Query.capture_count"></div>nothrow @nogc int <code class="ddoc_psymbol">capture_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the number of captures in the query.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.string_count"></span><div class="quickindex" id="quickindex.Query.string_count"></div>nothrow @nogc int <code class="ddoc_psymbol">string_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the number of string literals in the query.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.start_byte_for_pattern"></span><div class="quickindex" id="quickindex.Query.start_byte_for_pattern"></div>nothrow @nogc int <code class="ddoc_psymbol">start_byte_for_pattern</code>(uint <span class="ddoc_param">patternId</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the byte offset where the given pattern starts in the query's source.
+</div><div class="ddoc_description">This can be useful when combining queries by concatenating their source
+ code strings.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.predicates_for_pattern"></span><div class="quickindex" id="quickindex.Query.predicates_for_pattern"></div>nothrow @nogc const(TSQueryPredicateStep)[] <code class="ddoc_psymbol">predicates_for_pattern</code>(uint <span class="ddoc_param">patternId</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get all of the predicates for the given pattern in the query.
+</div><div class="ddoc_description">The predicates are represented as a single array of steps. There are three
+ types of steps in this array, which correspond to the three legal values for
+ the <code class="d_inlinecode donthyphenate notranslate">type</code> field:
+<ul><li><code class="d_inlinecode donthyphenate notranslate">TSQueryPredicateStepTypeCapture</code> - Steps with this type represent names
+    of captures. Their <code class="d_inlinecode donthyphenate notranslate">value_id</code> can be used with the
+   <code class="d_inlinecode donthyphenate notranslate">ts_query_capture_name_for_id</code> function to obtain the name of the capture.</li>
+<li><code class="d_inlinecode donthyphenate notranslate">TSQueryPredicateStepTypeString</code> - Steps with this type represent literal
+    strings. Their <code class="d_inlinecode donthyphenate notranslate">value_id</code> can be used with the
+    <code class="d_inlinecode donthyphenate notranslate">ts_query_string_value_for_id</code> function to obtain their string value.</li>
+<li><code class="d_inlinecode donthyphenate notranslate">TSQueryPredicateStepTypeDone</code> - Steps with this type are <em>sentinels</em>
+    that represent the end of an individual predicate. If a pattern has two
+    predicates, then there will be two steps with this <code class="d_inlinecode donthyphenate notranslate">type</code> in the array.</li>
+</ul></div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.is_pattern_guaranteed_at_step"></span><div class="quickindex" id="quickindex.Query.is_pattern_guaranteed_at_step"></div>nothrow @nogc bool <code class="ddoc_psymbol">is_pattern_guaranteed_at_step</code>(uint <span class="ddoc_param">byteOffset</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if a given step in a query is 'definite'.
+</div><div class="ddoc_description">A query step is 'definite' if its parent pattern will be guaranteed to match
+ successfully once it reaches the step.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.step_is_definite"></span><div class="quickindex" id="quickindex.Query.step_is_definite"></div>nothrow @nogc bool <code class="ddoc_psymbol">step_is_definite</code>(uint <span class="ddoc_param">byteOffset</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">@deprecated. Use <code class="d_inlinecode donthyphenate notranslate">is_pattern_guaranteed_at_step</code> instead.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.capture_name_for_id"></span><div class="quickindex" id="quickindex.Query.capture_name_for_id"></div>nothrow string <code class="ddoc_psymbol">capture_name_for_id</code>(uint <span class="ddoc_param">captureId</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the name of one of the query's captures.
+</div><div class="ddoc_description">Each capture is associated with a numeric id based on the order that it
+ appeared in the query's source.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.capture_name"></span><div class="quickindex" id="quickindex.Query.capture_name"></div>nothrow string <code class="ddoc_psymbol">capture_name</code>(TSQueryCapture <span class="ddoc_param">capture</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the name of one of the query's captures, given a TSQueryCapture.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.query_string_value_for_id"></span><div class="quickindex" id="quickindex.Query.query_string_value_for_id"></div>nothrow string <code class="ddoc_psymbol">query_string_value_for_id</code>(uint <span class="ddoc_param">id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the name of one of the query's string literals.
+</div><div class="ddoc_description">Each string is associated with a numeric <span class="ddoc_param">id</span> based on the order that it
+ appeared in the query's source.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.disable_capture"></span><div class="quickindex" id="quickindex.Query.disable_capture"></div>void <code class="ddoc_psymbol">disable_capture</code>(string <span class="ddoc_param">captureName</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Disable a certain capture within a query.
+</div><div class="ddoc_description">This prevents the capture from being returned in matches, and also avoids
+ any resource usage associated with recording the capture. Currently, there
+ is no way to undo this.</div>
+</dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Query.disable_pattern"></span><div class="quickindex" id="quickindex.Query.disable_pattern"></div>nothrow @nogc void <code class="ddoc_psymbol">disable_pattern</code>(uint <span class="ddoc_param">patternId</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Disable a certain pattern within a query.
+</div><div class="ddoc_description">This prevents the pattern from matching and removes most of the overhead
+ associated with the pattern. Currently, there is no way to undo this.</div>
+</dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>

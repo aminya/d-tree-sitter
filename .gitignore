@@ -23,7 +23,6 @@ src/d_tree_sitter/libc.d
 .dub
 docs.json
 __dummy.html
-docs/
 
 # Code coverage
 *.lst

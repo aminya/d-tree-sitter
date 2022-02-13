@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>    <head>        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="css/proj_docs.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sidebar.js"></script>
+        <script type="text/javascript" src="js/listanchors.js"></script>
+        <title>language</title>
+        
+        
+    </head>
+    <body>        
+        <div class="container">            
+<div class="sidebar-underbar"></div>
+<div class="sidebar">    <div class="head">        <h2>d_tree_sitter</h2>
+        <p><span class="smallprint"><b>version:</b> 1.2.0 <span class="separator"><br></span>
+            </span>
+        </p>
+        <p><a href="index.html">overview</a></p>
+    </div>
+    
+    <ul>
+
+	
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >d_tree_sitter</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >core</span></a><ul>
+			
+	
+	
+		<li class="expand-container open"><a class='expand-toggle' href="#"><span >stdc</span></a><ul>
+			
+
+	<li><a title="D header file for C99." href="d_tree_sitter--d_tree_sitter.core.stdc.stdbool.html"><span >stdbool</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+		</ul></li>
+	
+
+
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.language.html"><span >language</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.libc.html"><span >libc</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.node.html"><span >node</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.other.html"><span >other</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.parser.html"><span >parser</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.query.html"><span >query</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree.html"><span >tree</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_cursor.html"><span >tree_cursor</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_printer.html"><span >tree_printer</span></a></li>
+
+
+
+	<li><a title="" href="d_tree_sitter--d_tree_sitter.tree_visitor.html"><span >tree_visitor</span></a></li>
+
+
+		</ul></li>
+	
+
+
+
+
+</ul>
+</div>
+            <div class="content">                <h1>language</h1>
+                
+                <div class="quickindex" id="quickindex"></div>
+                
+                
+<dl class="ddoc_members"><div class="ddoc_module_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language"></span><div class="quickindex" id="quickindex.Language"></div>struct <code class="ddoc_psymbol">Language</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">An opaque object that defines how to parse a particular language. The code for each
+  <code class="d_inlinecode donthyphenate notranslate"><code class="ddoc_psymbol">Language</code></code> is gen by the Tree-sitter CLI.</div><dl class="ddoc_members"><div class="ddoc_struct_members"><dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.tslanguage"></span><div class="quickindex" id="quickindex.Language.tslanguage"></div>const TSLanguage* <code class="ddoc_psymbol">tslanguage</code>;
+<br></div></dt>
+<dd><div class="ddoc_summary">internal TSLanguage</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.this"></span><div class="quickindex" id="quickindex.Language.this"></div>nothrow @nogc this(const TSLanguage* <span class="ddoc_param">tslanguage</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">create a new Language.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.get_version"></span><div class="quickindex" id="quickindex.Language.get_version"></div>nothrow @nogc auto <code class="ddoc_psymbol">get_version</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the ABI version number that indicates which version of the Tree-sitter CLI
+   that was used to generate this <code class="d_inlinecode donthyphenate notranslate">Language</code>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.node_kind_count"></span><div class="quickindex" id="quickindex.Language.node_kind_count"></div>nothrow @nogc auto <code class="ddoc_psymbol">node_kind_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the number of distinct node types in language.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.node_kind_for_id"></span><div class="quickindex" id="quickindex.Language.node_kind_for_id"></div>nothrow @nogc auto <code class="ddoc_psymbol">node_kind_for_id</code>(ushort <span class="ddoc_param">id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the name of the node kind for the given numerical <span class="ddoc_param">id</span>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.id_for_node_kind"></span><div class="quickindex" id="quickindex.Language.id_for_node_kind"></div>auto <code class="ddoc_psymbol">id_for_node_kind</code>(string <span class="ddoc_param">kind</span>, bool <span class="ddoc_param">named</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the numeric id for the given node <span class="ddoc_param">kind</span>.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.node_kind_is_named"></span><div class="quickindex" id="quickindex.Language.node_kind_is_named"></div>nothrow @nogc auto <code class="ddoc_psymbol">node_kind_is_named</code>(ushort <span class="ddoc_param">id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the node type for the given numerical <span class="ddoc_param">id</span> is named (as opposed
+    to an anonymous node type).</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.node_kind_is_visible"></span><div class="quickindex" id="quickindex.Language.node_kind_is_visible"></div>nothrow @nogc auto <code class="ddoc_psymbol">node_kind_is_visible</code>(ushort <span class="ddoc_param">id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Check if the node type for the given numerical <span class="ddoc_param">id</span> is anonymous (as opposed
+    to a named node type).</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.field_count"></span><div class="quickindex" id="quickindex.Language.field_count"></div>nothrow @nogc auto <code class="ddoc_psymbol">field_count</code>();
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the number of distinct field names in this language.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.field_name_for_id"></span><div class="quickindex" id="quickindex.Language.field_name_for_id"></div>nothrow @nogc auto <code class="ddoc_psymbol">field_name_for_id</code>(ushort <span class="ddoc_param">field_id</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the field names for the given numerical id.</div></dd>
+<dt class="ddoc_decl"><div ><span class="def-anchor" id=".Language.field_id_for_name"></span><div class="quickindex" id="quickindex.Language.field_id_for_name"></div>auto <code class="ddoc_psymbol">field_id_for_name</code>(string <span class="ddoc_param">field_name</span>);
+<br></div></dt>
+<dd><div class="ddoc_summary">Get the numerical id for the given field name.</div></dd>
+</div></dl>
+</dd>
+</div></dl>
+
+                
+            </div>
+        </div>
+        
+        <script type="text/javascript">jQuery(document).ready(listanchors);</script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     </body>
+</html>
