@@ -130,7 +130,7 @@ struct Query
   import libc : ts_query_new, ts_query_delete, ts_query_pattern_count,
     ts_query_capture_count, ts_query_start_byte_for_pattern,
     ts_query_predicates_for_pattern,
-    ts_query_step_is_definite,
+    ts_query_is_pattern_guaranteed_at_step,
     ts_query_capture_name_for_id,
     ts_query_disable_capture, ts_query_disable_pattern,
     ts_query_string_count, ts_query_string_value_for_id;
@@ -266,9 +266,17 @@ struct Query
      * A query step is 'definite' if its parent pattern will be guaranteed to match
      * successfully once it reaches the step.
      */
+  bool is_pattern_guaranteed_at_step(uint byteOffset) @nogc nothrow
+  {
+    return ts_query_is_pattern_guaranteed_at_step(tsquery, byteOffset);
+  }
+
+  /**
+     * @deprecated. Use `is_pattern_guaranteed_at_step` instead.
+     */
   bool step_is_definite(uint byteOffset) @nogc nothrow
   {
-    return ts_query_step_is_definite(tsquery, byteOffset);
+    return is_pattern_guaranteed_at_step(byteOffset);
   }
 
   /**
