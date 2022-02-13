@@ -20,6 +20,10 @@ To set up a reproducible build environment, you can run [setup-cpp](https://gith
 import d_tree_sitter;
 ```
 
+See the documentation for the API here:
+
+[Documentation](https://aminya.github.io/d-tree-sitter/)
+
 # License
 
 Copyright © 2021, Amin Yahyaabadi
