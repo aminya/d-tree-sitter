@@ -272,6 +272,14 @@ struct Query
   }
 
   /**
+     * @deprecated. Use `is_pattern_guaranteed_at_step` instead.
+     */
+  bool step_is_definite(uint byteOffset) @nogc nothrow
+  {
+    return is_pattern_guaranteed_at_step(byteOffset);
+  }
+
+  /**
      * Get the name of one of the query's captures.
      *
      * Each capture is associated with a numeric id based on the order that it
