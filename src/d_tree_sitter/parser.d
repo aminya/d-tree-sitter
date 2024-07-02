@@ -29,7 +29,7 @@ struct Parser
       Params:
         language = the language you want to create a parser for
   */
-  this(in Language language) nothrow @nogc
+  this(Language language) nothrow @nogc
   {
     // Create a parser.
     this.tsparser = ts_parser_new();
@@ -54,7 +54,7 @@ struct Parser
    * NOTE it assumes that the language is compatible. Returns a boolean indicating whether or not the language was successfully
    * assigned.
    */
-  auto set_language_nothrow(in Language language) nothrow
+  auto set_language_nothrow(Language language) nothrow
   {
     return ts_parser_set_language(tsparser, language.tslanguage);
   }
@@ -69,7 +69,7 @@ struct Parser
    * and compare it to this library's `TREE_SITTER_LANGUAGE_VERSION` and
    * `TREE_SITTER_MIN_COMPATIBLE_LANGUAGE_VERSION` constants.
    */
-  auto set_language(in Language language)
+  auto set_language(Language language)
   {
     // TODO make set_language private?
     enforce_compatible_language(language);

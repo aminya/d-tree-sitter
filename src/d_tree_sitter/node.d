@@ -365,7 +365,7 @@ struct Node
       A node. If the given node doesn't have a parent, it returns the node itself.
     Note: the nth might not be reached if there are no more parents.
   */
-  auto nth_parent(in uint max_nth = 2) @nogc nothrow @trusted const
+  auto nth_parent(uint max_nth = 2) @nogc nothrow @trusted const
   {
     auto maybeFirstParent = this.parent();
     if (maybeFirstParent.isNull())
