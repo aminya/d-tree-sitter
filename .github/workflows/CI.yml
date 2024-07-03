@@ -20,7 +20,8 @@ jobs:
           - "ldc-1.38.0"
           - "dmd-2.109.1"
         clang:
-          - 18.0.0
+           # default setup-cpp version 
+          - true
         cmake:
           - 3.28.3
         ninja:
