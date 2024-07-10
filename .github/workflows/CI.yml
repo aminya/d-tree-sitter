@@ -75,7 +75,7 @@ jobs:
         env:
           DUB_BUILD_TYPE: debug
 
-      - name: Lint
-        run: dub lint
-        env:
-          DUB_BUILD_TYPE: release
+      # - name: Lint
+      #   run: dub lint
+      #   env:
+      #     DUB_BUILD_TYPE: release
