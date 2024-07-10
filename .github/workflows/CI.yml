@@ -77,3 +77,5 @@ jobs:
 
       - name: Lint
         run: dub lint
+        env:
+          DUB_BUILD_TYPE: release
