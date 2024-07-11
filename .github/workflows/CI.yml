@@ -15,7 +15,7 @@ jobs:
         os:
           - ubuntu-22.04
           - windows-2022
-          - macos-13.0
+          - macos-13
         d:
           - "ldc-1.38.0"
           - "dmd-2.109.1"
