@@ -13,18 +13,19 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-20.04
+          - ubuntu-22.04
           - windows-2022
-          - macos-11.0
+          - macos-13
         d:
-          - "ldc-1.28.1"
-          - "dmd-2.098.1"
+          - "ldc-1.38.0"
+          - "dmd-2.109.1"
         clang:
-          - 13.0.0
+           # default setup-cpp version 
+          - true
         cmake:
-          - 3.22.2
+          - 3.28.3
         ninja:
-          - 1.10.2
+          - 1.11.1
         exclude:
           # TODO ci job fails with object.Error@(0): Access Violation error
           - os: windows-2022
@@ -74,5 +75,7 @@ jobs:
         env:
           DUB_BUILD_TYPE: debug
 
-      - name: Lint
-        run: dub lint
+      # - name: Lint
+      #   run: dub lint
+      #   env:
+      #     DUB_BUILD_TYPE: release

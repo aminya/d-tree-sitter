@@ -1,3 +1,6 @@
 module libc;
 
+import core.stdc.stdint;
+
+
 #include "./gen/tree-sitter/lib/include/tree_sitter/api.h"
